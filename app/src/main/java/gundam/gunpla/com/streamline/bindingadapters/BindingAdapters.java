@@ -33,7 +33,7 @@ public class BindingAdapters {
         int orientation = vertical ? RecyclerView.VERTICAL : RecyclerView.HORIZONTAL;
         recyclerView.setLayoutManager(new LinearLayoutManager(recyclerView.getContext(), orientation, false));
     }
-    
+
     @BindingAdapter("adapter")
     public static void bindAdapter(@NonNull RecyclerView recyclerView, @Nullable RecyclerView.Adapter adapter) {
         recyclerView.setAdapter(adapter);
