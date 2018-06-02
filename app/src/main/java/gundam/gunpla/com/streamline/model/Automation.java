@@ -2,6 +2,10 @@ package gundam.gunpla.com.streamline.model;
 
 public class Automation {
 
+    public static final String VIEW_TAXI = "Cab";
+    public static final String VIEW_FOOD_DELIVERY = "Delivery";
+    public static final String VIEW_FOOD_GROCERY = "Grocery";
+
     private String type;
     private String description;
     private String time;

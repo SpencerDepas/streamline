@@ -30,12 +30,12 @@ public class MainViewModel extends BaseObservable implements ViewModel,
         automation.setDescription("Home to office");
 
         Automation automationTwo = new Automation();
-        automationTwo.setType("Lunch");
+        automationTwo.setType("Delivery");
         automationTwo.setTime("12:30am");
         automationTwo.setDescription("Feista");
 
         Automation automationThree = new Automation();
-        automationThree.setType("Grocerys");
+        automationThree.setType("Grocery");
         automationThree.setTime("7+pm");
         automationThree.setDescription("Weekly order of grocerys");
 

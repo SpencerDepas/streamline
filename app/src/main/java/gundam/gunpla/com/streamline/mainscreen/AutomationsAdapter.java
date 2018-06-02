@@ -18,6 +18,10 @@ import gundam.gunpla.com.streamline.model.Automation;
 public class AutomationsAdapter extends RecyclerView.Adapter<AutomationsAdapter.CustomViewHolder> {
 
 
+    private static final int VIEW_TAXI = 0;
+    private static final int VIEW_FOOD_DELIVERY = 1;
+    private static final int VIEW_FOOD_GROCERY = 2;
+
     private final
     @NonNull
     List<Automation> items;
@@ -31,10 +35,23 @@ public class AutomationsAdapter extends RecyclerView.Adapter<AutomationsAdapter.
     @Override
     public CustomViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
+
+
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        ViewDataBinding binding = DataBindingUtil.inflate(layoutInflater,
-                R.layout.automotions_adapter_item, parent, false);
-        return new CustomViewHolder(binding);
+
+        if(viewType == VIEW_TAXI) {
+            ViewDataBinding binding = DataBindingUtil.inflate(layoutInflater,
+                    R.layout.automation_taxi_adapter_item, parent, false);
+            return new CustomViewHolder(binding);
+        } else if(viewType == VIEW_FOOD_DELIVERY) {
+            ViewDataBinding binding = DataBindingUtil.inflate(layoutInflater,
+                    R.layout.automotion_food_adapter_item, parent, false);
+            return new CustomViewHolder(binding);
+        }else{
+            ViewDataBinding binding = DataBindingUtil.inflate(layoutInflater,
+                    R.layout.automation_grocery_adapter_item, parent, false);
+            return new CustomViewHolder(binding);
+        }
     }
 
     @Override
@@ -45,6 +62,17 @@ public class AutomationsAdapter extends RecyclerView.Adapter<AutomationsAdapter.
         holder.bind(obj);
 
 
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        if(items != null && items.get(position).getType().equals(Automation.VIEW_TAXI)) {
+            return VIEW_TAXI;
+        } else if(items != null && items.get(position).getType().equals(Automation.VIEW_FOOD_DELIVERY)) {
+            return VIEW_FOOD_DELIVERY;
+        }else{
+            return VIEW_FOOD_GROCERY;
+        }
     }
 
     @Override
