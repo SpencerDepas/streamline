@@ -12,6 +12,7 @@ import com.android.databinding.library.baseAdapters.BR;
 import java.util.List;
 
 import gundam.gunpla.com.streamline.R;
+import gundam.gunpla.com.streamline.model.Automation;
 
 
 public class AutomationsAdapter extends RecyclerView.Adapter<AutomationsAdapter.CustomViewHolder> {
@@ -19,11 +20,12 @@ public class AutomationsAdapter extends RecyclerView.Adapter<AutomationsAdapter.
 
     private final
     @NonNull
-    List<Object> automations;
+    List<Automation> items;
     private AutomationsAdapterCallBack automationsAdapterCallBack;
 
-    public AutomationsAdapter(@NonNull List<Object> automations) {
-        this.automations = automations;
+    public AutomationsAdapter(@NonNull List<Automation> items) {
+        this.items = items;
+        notifyDataSetChanged();
     }
 
     @Override
@@ -39,7 +41,7 @@ public class AutomationsAdapter extends RecyclerView.Adapter<AutomationsAdapter.
     public void onBindViewHolder(CustomViewHolder holder, int position) {
 
 
-        Object obj = automations.get(position);
+        Automation obj = items.get(position);
         holder.bind(obj);
 
 
@@ -47,7 +49,7 @@ public class AutomationsAdapter extends RecyclerView.Adapter<AutomationsAdapter.
 
     @Override
     public int getItemCount() {
-        return automations.size();
+        return items.size();
     }
 
     public class CustomViewHolder extends RecyclerView.ViewHolder {
@@ -58,7 +60,7 @@ public class AutomationsAdapter extends RecyclerView.Adapter<AutomationsAdapter.
             this.binding = binding;
         }
 
-        public void bind(Object item) {
+        public void bind(Automation item) {
             binding.setVariable(BR.item, item);
             binding.executePendingBindings();
         }

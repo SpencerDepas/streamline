@@ -5,7 +5,7 @@
 
         <variable
             name="item"
-            type="java.lang.Object" />
+            type="gundam.gunpla.com.streamline.model.Automation" />
 
     </data>
 
