@@ -9,6 +9,7 @@ public class Automation {
     private String type;
     private String description;
     private String time;
+    private String arival;
 
     public String getType() {
         return type;
@@ -33,4 +34,13 @@ public class Automation {
     public void setTime(String time) {
         this.time = time;
     }
+
+    public String getArival() {
+        return arival;
+    }
+
+    public void setArival(String arival) {
+        this.arival = arival;
+    }
+
 }
